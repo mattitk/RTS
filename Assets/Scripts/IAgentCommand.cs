@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICommand {
-	void Execute();
+public interface IAgentCommand {
+	void Execute(GameObject agent);
 }

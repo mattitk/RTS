@@ -5,18 +5,21 @@ using UnityEngine;
 //var instance : GameObject = Instantiate(Resources.Load("enemy"));
 
 
-public class Spawn : ICommand {
-	private Transform target;
+public class Spawn : IAgentCommand {
+	//private Transform target;
 	private string prefabName;
 
-	Spawn(string prefabName, Transform target)
+	public Spawn(string prefabName, Vector3 targetPos, Quaternion targetRot)
 	{
+	//	target.position = targetPos;
+	//	target.rotation = targetRot;
 		this.prefabName = prefabName;
 	}
 	
-	public void Execute()
+	public void Execute(GameObject agent)
 	{
-		if(prefabName != null) return;
+		if(prefabName == null) return;
+		Debug.Log("Instantiating");
 		GameObject.Instantiate(Resources.Load(prefabName));
 	}
 }
